@@ -1,0 +1,124 @@
+.types{
+  width:1659px;
+  margin: 85px auto 0;
+  display: flex;
+  justify-content: space-between;
+  .item{
+    width:300px;
+    height:540px;
+    background-color: rgba(47,61,87,.5);
+    position: relative;
+    b{
+      position: absolute;
+      width: 280px;
+      height:520px;
+      background-color:rgba(47,61,87,1);
+      top:10px;
+      left:10px;
+      transform: scale(0.75);
+      transition: .3s;
+      opacity: 0;
+    }
+    //鼠标悬停样式
+    &.active{
+      b{
+        transform: scale(1);
+        opacity: 1;
+      }
+      .content{
+        font-size: 24px;
+        bottom:199px;
+        .overview{
+          width:61px;
+          height:61px;
+          background: url(./img/overviewActive.png) no-repeat;
+          background-size: contain;
+          margin-bottom: 38px;
+        }
+        .pathogen{
+          width:56px;
+          height: 63px;
+          background: url(./img/pathogenActive.png) no-repeat;
+          background-size: contain;
+          margin-bottom: 37px;
+        }
+        .tumor{
+          width: 62px;
+          height: 64px;
+          margin-bottom: 37px;
+          background: url(./img/tumorActive.png) no-repeat;
+          background-size: contain;
+        }
+        .blood{
+          width: 61px;
+          height: 58px;
+          margin-bottom: 39px;
+          background: url(./img/bloodActive.png) no-repeat;
+          background-size: contain;
+        }
+        .across{
+          width: 61px;
+          height: 51px;
+          margin-bottom: 43px;
+          background: url(./img/acrossActive.png) no-repeat;
+          background-size: contain;
+        }
+      }
+    }
+    //正常时的样式
+    .content{
+      position: absolute;
+      bottom:219px;
+      text-align: center;
+      width: 100%;
+      color:#fff;
+      font-size: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      transition: all .3s;
+      i{
+        transition: all .3s;
+
+      }
+      .overview{
+        width:42px;
+        height: 42px;
+        margin-bottom: 19px;
+        background: url(./img/overview.png) no-repeat;
+        background-size: contain;
+
+      }
+      .pathogen{
+        width: 41px;
+        height:47px;
+        background: url(./img/pathogen.png) no-repeat;
+        margin-bottom: 17px;
+        background-size: contain;
+      }
+      .tumor{
+        width: 40px;
+        height: 41px;
+        background: url(./img/tumor.png) no-repeat;
+        background-size: contain;
+        margin-bottom: 20px;
+      }
+      .blood{
+        width: 43px;
+        height: 41px;
+        background: url(./img/blood.png) no-repeat;
+        background-size: contain;
+        margin-bottom: 19px;
+      }
+      .across{
+        width: 44px;
+        height: 37px;
+        background: url(./img/across.png) no-repeat;
+        background-size: contain;
+        margin-bottom: 21px;
+      }
+    }
+  }
+
+}
