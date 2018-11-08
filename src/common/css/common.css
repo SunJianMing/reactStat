@@ -3,6 +3,7 @@ html,body{
   padding:0;
   width:100%;
   height: 100%;
+  /* background-color: #1A2539; */
   -ms-text-size-adjust: 100%;
  /* 2 */
  -webkit-text-size-adjust: 100%;
@@ -36,4 +37,24 @@ div,span,i,b,table,input,textarea,p,h1,h2,h3,h4,h5,h6,body,s,a{
 #root,.root{
   width:100%;
   height:100%;
+}
+.watermark{
+    background-image: url(../img/watermark.png);
+    background-repeat: no-repeat;
+    background-position: center 2.65rem;
+    background-size: 12.22rem 4.09rem;
+}
+
+.axis path,.axis line{
+            fill:none;
+            stroke:#fff;
+            shape-rendering:crespEdges;
+        }
+        .axis text{
+            font-family: sans-serif;
+            font-size: 12px;
+            stroke:#fff;
+        }
+.axis line{
+    stroke:transparent;
 }

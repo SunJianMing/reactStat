@@ -6,6 +6,7 @@ import Frame from 'layout/frame/Frame';
 //css reset
 // import 'common/css/common.scss'
 import 'common/css/common.css'
+import 'common/js/common.js'
 
 ReactDom.render(
     <Router basename='/'>

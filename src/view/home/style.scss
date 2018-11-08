@@ -4,26 +4,26 @@
   background: url(./img/homeBg.png) no-repeat;
   background-size: 100% 100%;
   .container{
-    width: 460px;
-    min-height: 455px;
+    width: 4.6rem;
+    min-height: 4.55rem;
     position: fixed;
     top:50%;
     left:50%;
     transform: translate(-50%,-50%);
     .logo{
-      height: 45px;
+      height: .45rem;
       display: flex;
       justify-content: center;
       font-size: 0;
       i{
         width: 1px;
-        height:45px;
+        height:.45rem;
         background-color: #1870C3;
-        margin:0 35px 0 25px;
+        margin:0 .35rem 0 .25rem;
       }
       span{
-        width:123px;
-        height: 41px;
+        width:1.23rem;
+        height: .41rem;
         vertical-align: top;
         margin-top: 2px;
         img{
@@ -33,60 +33,60 @@
       }
     }
     .content{
-      margin-top: 49px;
-      margin-bottom: 65px;
+      margin-top: .49rem;
+      margin-bottom: .65rem;
       .top_title{
-        height:56px;
+        height:.56rem;
         display: flex;
         justify-content: space-between;
         font-size: 0;
-        margin-bottom: 12px;
+        margin-bottom: .12rem;
         .top_text{
           color:#fff;
-          font-size: 65px;
-          height: 56px;
-          line-height: 56px;
-          width:191px;
-          letter-spacing: 15px;
-          margin-right: 15px;
+          font-size: .65rem;
+          height: .56rem;
+          line-height: .56rem;
+          width:1.91rem;
+          letter-spacing: .15rem;
+          margin-right: .15rem;
         }
         .top_english{
 
-          font-size: 23px;
+          font-size: .23rem;
           color:rgba(255,255,255,0.5);
           text-align: left;
-          height: 53px;
+          height: .53rem;
           line-height: 1.3;
         }
       }
       .title{
-        margin-bottom: 20px;
+        margin-bottom: .2rem;
         div{
-          font-size: 77px;
+          font-size: .77rem;
           color:#168BF8;
           white-space: nowrap;
-          line-height: 77px;
-          margin-bottom: 13px;
+          line-height: .77rem;
+          margin-bottom: .13rem;
         }
         span{
           width:100%;
-          font-size: 35px;
+          font-size: .35rem;
           color:rgba(255,255,255,0.5);
           font-weight: 300;
-          line-height: 35px;
+          line-height: .35rem;
           height: 35px;
-          letter-spacing: 2px;
+          letter-spacing: .02rem;
 
         }
       }
       .small_title{
-        height: 37px;
+        height: .37rem;
         display: flex;
         justify-content: center;
         align-items: center;
         i{
-          width:98px;
-          height: 7px;
+          width:.98rem;
+          height: .07rem;
           position: relative;
           &:before,&:after{
             position: absolute;
@@ -103,22 +103,22 @@
           }
         }
         span{
-          margin: 0 15px;
-          font-size: 39px;
-          height:37px;
-          line-height: 37px;
+          margin: 0 .15rem;
+          font-size: .39rem;
+          height:.37rem;
+          line-height: .37rem;
           color:#168BF8;
         }
       }
     }
     .button{
-      width:187px;
-      height:50px;
-      border-radius: 25px;
+      width:1.87rem;
+      height:.5rem;
+      border-radius: .25rem;
       background-color: #168BF8;
-      font-size: 24px;
+      font-size: .24rem;
       color:#fff;
-      line-height: 50px;
+      line-height: .5rem;
       text-align: center;
       display: block;
       margin:0 auto;
