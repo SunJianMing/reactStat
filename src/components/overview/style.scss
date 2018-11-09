@@ -6,4 +6,12 @@
         width: 100%;
         height:100%;
     }
+    .ygLine line{
+      stroke-width:1;
+      stroke:#384863;
+    }
+    .ygLine text{
+      fill:none;
+      stroke:#384863;
+    }
 }

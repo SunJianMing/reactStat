@@ -71,10 +71,6 @@ export default class extends React.Component {
                 name: '肠道微生物',
                 value: 3606456,
                 sum: 8000000
-            }, {
-                name: '生化报告',
-                value: 4056456,
-                sum: 8000000
             }]
         this.setState({
             barData

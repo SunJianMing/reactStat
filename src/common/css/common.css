@@ -47,14 +47,20 @@ div,span,i,b,table,input,textarea,p,h1,h2,h3,h4,h5,h6,body,s,a{
 
 .axis path,.axis line{
             fill:none;
-            stroke:#fff;
+            stroke:#384863;
             shape-rendering:crespEdges;
         }
         .axis text{
             font-family: sans-serif;
-            font-size: 12px;
-            stroke:#fff;
+            font-size: .14rem;
+            fill:#fff;
+
+
         }
 .axis line{
     stroke:transparent;
+}
+.axis .domain{
+  stroke-width:1;
+
 }

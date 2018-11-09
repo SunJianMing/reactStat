@@ -1,6 +1,7 @@
 import Home from 'view/home/Home'
 import Types from 'view/types/Types'
 import Overview from 'view/overview/Overview'
+import Pathogen from 'view/pathogen/Pathogen'
 import {Route} from 'react-router-dom'
 export default class extends React.Component {
    render(){
@@ -9,6 +10,7 @@ export default class extends React.Component {
          <Route path='/' exact component={Home}/>
          <Route path='/types' exact component={Types}/>
          <Route path='/overview' exact component={Overview}/>
+         <Route path='/pathogen' exact component={Pathogen}/>
        </div>
      )
    }
