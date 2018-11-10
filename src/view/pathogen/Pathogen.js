@@ -13,30 +13,35 @@ export default class extends React.Component {
     let pieData = [
         {
             name: '影像报告',
-            value: 4564,
-            sum: 8000,
-            url: 'dddddd'
+            value: 90,
+            sum: 200,
+            details: true
         }, {
             name: 'HIV病毒感染',
-            value: 456456,
-            sum: 800000,
+            value: 100,
+            sum: 250,
             isSecret: true
         }, {
             name: '常规体检',
-            value: 906456,
-            sum: 1000000
+            value: 48,
+            sum: 200,
+            details: true
         }, {
             name: '免疫组学',
-            value: 906456,
-            sum: 2000000
+            value: 499,
+            sum: 2999
         }, {
             name: '无创肠癌筛查',
-            value: 1356456,
-            sum: 8000000
+            value: 54,
+            sum: 370
         }, {
             name: '眼底OCT',
-            value: 1806456,
-            sum: 8000000
+            value: 43,
+            sum: 250
+        }, {
+            name: '眼底OCT',
+            value: 43,
+            sum: 250
         }]
     this.setState({
       pieData
@@ -44,7 +49,6 @@ export default class extends React.Component {
   }
   render(){
     let {pieData} = this.state
-
     return (
       <div className={`${S.pathogen} clearfix watermark`}>
           <TopNav {...{

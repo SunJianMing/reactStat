@@ -4,7 +4,7 @@ export default class extends React.Component {
     componentDidUpdate(){
         let {barData} = this.props
         let bar = this.refs.bar
-        console.log(bar);
+
         let svgW = bar.offsetWidth;
         let svgH = bar.offsetHeight;
 
@@ -18,10 +18,6 @@ export default class extends React.Component {
         let xScale = d3.scale.ordinal()
                             .domain(d3.range(barData.length))
                             .rangeRoundBands([0,svgW])
-
-
-
-
         let xAxis = d3.svg.axis()
                     .scale(xScale)
                     .orient('bottom')
@@ -117,7 +113,7 @@ export default class extends React.Component {
                     })
 
         let number = 0;
-        var text = group.append('text')
+        let text = group.append('text')
                         .attr('stroke','none')
                         .attr('fill',(d,i)=>{
                           return colors[i%13]
@@ -133,12 +129,22 @@ export default class extends React.Component {
                         .attr('text-anchor','middle')
                         .attr('font-size','.14rem')
                         .text((d,i)=>{
-                          return d.value
+                          return 0
                         })
-                        .transition()
+        let initY = text.attr('y')
+        let initText = text.text()
+        let textTran = text.transition()
                         .duration(2000)
-                        .attr('y',(d,i)=>{
-                           return svgH - yScale(d.value) - padding.bottom
+                        // .attr('y',(d,i)=>{
+                        //    return svgH - yScale(d.value) - padding.bottom
+                        // })
+                        .tween('text',function(d){
+                            return function(t){
+
+                                d3.select(this)
+                                    .attr('y',svgH - padding.bottom - (t*yScale(d.value)))
+                                    .text(Math.floor(initText+t*d.value))
+                            }
                         })
 
 

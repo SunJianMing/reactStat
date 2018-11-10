@@ -21,11 +21,14 @@ export default class extends React.Component {
   }
   render(){
     let {name,icon,url} = this.props
-    
+
     let {active} = this.state
     return (
       <Link to={{
-        pathname:url
+        pathname:url,
+        state:{
+            isBack:true
+        }
       }}>
         <div className={`${S.item} ${active?S.active:''}`} onMouseEnter={this.mouseEnter} onMouseLeave={this.mouseLeave}>
           <b></b>

@@ -20,6 +20,9 @@ p,ul,ol,h1,h2,h3,h4,h5,h6,table,a{
 input,textarea{
   outline: none;
 }
+i{
+    font-style: normal;
+}
 div,span,i,b,table,input,textarea,p,h1,h2,h3,h4,h5,h6,body,s,a{
   box-sizing: border-box;
   line-height: normal;

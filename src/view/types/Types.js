@@ -1,6 +1,10 @@
 import TopNav from 'layout/topTitle/TopTitle'
 import Types from 'components/types/Types'
+import Prev from 'layout/prevNav/PrevNav'
 import S from './style.scss'
+
+
+
 export default class extends React.Component {
   constructor(props){
     super(props)
@@ -30,8 +34,11 @@ export default class extends React.Component {
   }
   render(){
     let {types} = this.state;
+    // let {history,location:{state}} = this.props
+
     return (
       <div className={`clearfix ${S.types}`}>
+          {/* {state && <Prev {...{history}}/>} */}
           <TopNav {...{
             name:'查看相关',
             english:'Check the related'

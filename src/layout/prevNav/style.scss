@@ -1,0 +1,20 @@
+.prev{
+    position: fixed;
+    top:.36rem;
+    left: .55rem;
+    width: 1.43rem;
+    height: .39rem;
+    background-color: #1A2539;
+    border-radius: .2rem;
+    border:1px solid #2B3649;
+    text-align: center;
+    line-height: .39rem;
+    color: rgba(57,68,87,0.5);
+    font-size: .18rem;
+    z-index: 999;
+    &.active{
+        background-color: #2F3D57;
+        border-color: #646A74;
+        color:rgba(255,255,255,0.5);
+    }
+}

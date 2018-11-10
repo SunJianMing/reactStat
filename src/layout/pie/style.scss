@@ -19,6 +19,14 @@
     min-height: 2.55rem;
     margin-right: .62rem;
     margin-bottom: .65rem;
+    &.active{
+        cursor: pointer;
+        .details{
+            background-color: #2F3D57;
+            color:rgba(255,255,255,0.5);
+            border:1px solid #646A74;
+        }
+    }
     &:nth-child(7n){
       margin-right: 0;
     }
@@ -47,12 +55,14 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      margin-bottom: .22rem;
       .name{
         height: .3rem;
         line-height: .17rem;
         font-size: .18rem;
         position: relative;
         margin-bottom: .13rem;
+        white-space: nowrap;
         &:after{
           content: '';
           width:.28rem;
@@ -64,6 +74,37 @@
           transform: translateX(-50%);
         }
       }
+      .percentage{
+          height: .19rem;
+          line-height: 19px;
+          font-size: .22rem;
+      }
+    }
+
+    .stat{
+        font-size: .2rem;
+        margin-bottom: .28rem;
+        span{
+            white-space: nowrap;
+            margin-left: -.10rem;
+            color:rgba(255,255,255,0.5);
+            i{
+                margin-left: .1rem;
+            }
+        }
+    }
+
+    .details{
+        font-size: .18rem;
+        width: .99rem;
+        height: .39rem;
+        background-color: #1A2539;
+        border:1px solid #2B3649;
+        border-radius: .2rem;
+        color:rgba(57,68,87,0.5);
+        text-align: center;
+        line-height: .39rem;
+
     }
   }
 }
