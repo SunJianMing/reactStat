@@ -1,6 +1,5 @@
 import TopNav from 'layout/topTitle/TopTitle'
 import Bar from 'components/overview/OverviewBar'
-import PrevPage from 'layout/prevNav/PrevNav'
 import S from './style.scss'
 
 
@@ -79,10 +78,8 @@ export default class extends React.Component {
     }
   render(){
       let {barData} = this.state
-      let {location:{state},history} = this.props
     return (
-      <div className={`clearfix ${S.overview} watermark`}>
-          {state && <PrevPage {...{history}}/>}
+      <div className={`clearfix watermark`}>
           <TopNav {...{
             name:'报告情况总览',
             english:'Overview of the report',

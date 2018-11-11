@@ -1,7 +1,7 @@
 import S from './style.scss'
+import {withRouter} from 'react-router-dom'
 
-
-export default class PrevPage extends React.Component {
+ class PrevPage extends React.Component {
     constructor(props){
         super(props)
         this.state = {
@@ -21,22 +21,19 @@ export default class PrevPage extends React.Component {
         })
     }
     render(){
+
         let {inMouse} = this.state;
         let active = inMouse?S.active:''
-        let {history:{go}} = this.props
+        let {history} = this.props
+
         return (
             <div
              className={`${S.prev} ${active}`}
              onMouseDown={this.mouseDown}
              onMouseUp={this.mouseUp}
-             onClick={()=>go(-1)}
+             onClick={history.goBack}
              >返回上一层</div>
          )
     }
 }
-// PrevPage.defaultProps = {
-//     his:function(){
-//         history.back()
-//     },
-//     show:true
-// }
+export default withRouter(PrevPage)

@@ -12,6 +12,7 @@
     color: rgba(57,68,87,0.5);
     font-size: .18rem;
     z-index: 999;
+    cursor: pointer;
     &.active{
         background-color: #2F3D57;
         border-color: #646A74;

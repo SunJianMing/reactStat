@@ -50,7 +50,7 @@ export default class extends React.Component {
   render(){
     let {pieData} = this.state
     return (
-      <div className={`${S.pathogen} clearfix watermark`}>
+      <div className={`watermark clearfix`}>
           <TopNav {...{
             name:'病原传感染篇',
             english:'The pathogens spread the infection',
