@@ -22,12 +22,7 @@ export default function(){
             </div>
             <div className={S.small_title}><i></i><span>阳性结果展示</span><i></i></div>
         </div>
-        <Link to={{
-            pathname:'/types',
-            state:{
-                isBack:true
-            }
-        }}  className={S.button}>进入报告</Link>
+        <Link to='/types'  className={S.button}>进入报告</Link>
       </div>
     </div>
   )

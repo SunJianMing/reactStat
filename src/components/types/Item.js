@@ -1,6 +1,7 @@
 import S from './style.scss'
-import {Link} from 'react-router-dom'
-export default class extends React.Component {
+import {Link,withRouter} from 'react-router-dom'
+
+ class Item extends React.Component {
   constructor(props){
     super(props)
     this.state = {
@@ -20,16 +21,14 @@ export default class extends React.Component {
       })
   }
   render(){
-    let {name,icon,url} = this.props
+    let {name,icon,url,history} = this.props
 
     let {active} = this.state
     return (
       <Link to={{
         pathname:url,
-        state:{
-            isBack:true
-        }
-      }}>
+      }}
+      >
         <div className={`${S.item} ${active?S.active:''}`} onMouseEnter={this.mouseEnter} onMouseLeave={this.mouseLeave}>
           <b></b>
           <div className={S.content}>
@@ -41,3 +40,5 @@ export default class extends React.Component {
     )
   }
 }
+
+export default withRouter(Item)

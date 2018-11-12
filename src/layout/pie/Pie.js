@@ -22,17 +22,35 @@ export default class extends React.Component{
                 .outerRadius(size/2)
 
     //转换成圆弧数据
-    let arcData = [{
-        startAngle:0,
-        endAngle:(value / sum) * 360 * Math.PI / 180
-    }]
+    let arcData
+    if(typeof value === 'object'){
+      arcData = [{
+          startAngle:0,
+          endAngle:(value[0] / sum) * 360 * Math.PI / 180
+      },{
+          startAngle:((value[0] / sum) * 360 * Math.PI / 180),
+          endAngle:(value[1] / sum) * 360 * Math.PI / 180
+      }]
+    }else{
+      arcData = [{
+          startAngle:0,
+          endAngle:(value / sum) * 360 * Math.PI / 180
+      }]
+    }
+
     // 圆弧
-    let g = svg.append('g')
-                .attr('transform','translate('+size/2+','+size/2+')')
-                .data(arcData)
+    let g = svg.selectAll('g.arc')
+            .data(arcData)
+            .enter()
+            .append('g')
+            .attr('transform','translate('+size/2+','+size/2+')')
+
+
 
     let arcTran = g.append('path')
-                .attr('fill',color)
+                .attr('fill',(d,i)=>{
+                  return color[i];
+                })
                 .transition()
                 .duration(2000)
                 .attrTween('d',function(d){
@@ -74,7 +92,7 @@ export default class extends React.Component{
     let {name,value,sum,details,hasDeta} = this.props
     let {inMouse} = this.state;
     let active = inMouse?S.active:'';
-    console.log(hasDeta);
+
     return (
       <div className={`${S.pie} ${active}`}
           onMouseEnter={this.onMouseEnter}

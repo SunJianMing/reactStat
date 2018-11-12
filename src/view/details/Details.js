@@ -1,65 +1,71 @@
-import TopNav from 'layout/topTitle/TopTitle'
+import NavTop  from 'layout/topTitle/TopTitle'
 import PieList from 'layout/pie/PieList'
-import S from './style.scss'
+
 export default class extends React.Component {
-    constructor(props){
-      super(props)
-      this.state = {
-        pieData:[]
-      }
+  constructor(props){
+    super(props)
+    this.state = {
+      navData:null,
+      pieData:[]
     }
-    componentDidMount(){
-      let pieData = [
+  }
+  componentDidMount(){
+    let {match:{params:{name}}} = this.props
+    let english;
+    if(name === 'HPV阳性'){
+      english = 'HPV positive'
+    }
+    let pieData = [
           {
-              name: '影像报告',
+              name: 'HPV16亚型',
               value: 90,
               sum: 200,
               details: true
           }, {
-              name: 'HIV病毒感染',
+              name: 'HPV31亚型',
               value: 100,
               sum: 250,
               isSecret: true
           }, {
-              name: '常规体检',
+              name: 'HPV35亚型',
               value: 48,
               sum: 200,
               details: true
           }, {
-              name: '免疫组学',
+              name: 'HPV45亚型',
               value: 499,
               sum: 2999
           }, {
-              name: '无创肠癌筛查',
+              name: 'HPV52亚型',
               value: 54,
               sum: 370
           }, {
-              name: '眼底OCT',
+              name: 'HPV58亚型',
               value: 43,
               sum: 250
           }, {
-              name: '眼底OCT',
+              name: 'HPV66亚型',
               value: 43,
               sum: 250
           }]
       this.setState({
-        pieData
+        pieData,
+        navData:{
+          name,
+          english
+        }
       })
-    }
-    render(){
-        let {pieData} = this.state
-        let {match:{params:{name}}} = this.props
-        return (
-            <div className={`${S.details} clearfix watermark`}>
-                <TopNav {...{
-                    name,
-                    english:'ssss'
-                }}/>
-                <PieList {...{
-                    pieData,
-                    hasDeta:true
-                }}/>
-            </div>
-        )
-    }
+  }
+  render(){
+
+    let {match:{params:{name}}} = this.props
+
+    let {navData,pieData} = this.state
+    return (
+      <div className='clearfix watermark'>
+        <NavTop {...navData}/>
+        <PieList {...{pieData,hasDeta:true}}/>
+      </div>
+    )
+  }
 }

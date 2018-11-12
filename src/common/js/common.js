@@ -9,4 +9,10 @@ const  setFont = ()=>{
 window.addEventListener('resize',()=>{
     setFont()
 })
+
+$.interceptors.response.use(({data,status})=>{
+  if(status === 200){
+    return data
+  }
+})
 setFont()

@@ -34,7 +34,9 @@ export default class extends React.Component {
 
 
 
-
+      if(d3.select(bar).select('svg').size()){
+        return
+      }
         let svg = d3.select(bar).append('svg')
 
 

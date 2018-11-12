@@ -48,6 +48,7 @@ div,span,i,b,table,input,textarea,p,h1,h2,h3,h4,h5,h6,body,s,a{
     background-size: 12.22rem 4.09rem;
     background-color: #1A2539;
     min-height: 100%;
+    flex:1 1 auto;
 }
 
 .axis path,.axis line{

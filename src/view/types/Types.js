@@ -34,7 +34,7 @@ export default class extends React.Component {
   }
   render(){
     let {types} = this.state;
-    // let {history,location:{state}} = this.props
+    let {getGroupData} = this.props
 
     return (
       <div className={`clearfix ${S.types}`}>
@@ -43,7 +43,7 @@ export default class extends React.Component {
             name:'查看相关',
             english:'Check the related'
           }}/>
-          <Types {...{types}}/>
+          <Types {...{types,getGroupData}}/>
       </div>
     )
   }
