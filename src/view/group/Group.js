@@ -214,7 +214,7 @@ export default class extends React.Component {
                       isSecret: true
                   }, {
                       name: '代谢指标',
-                      value: [50,30],
+                      value: [62,88],
                       sum: 200,
                       isSecret: true
                   }

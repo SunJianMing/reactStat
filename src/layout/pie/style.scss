@@ -76,6 +76,11 @@
           height: .19rem;
           line-height: 19px;
           font-size: .22rem;
+          display: flex;
+          justify-content: center;
+          span:nth-child(2){
+              margin-left: .2rem;
+          }
       }
     }
 

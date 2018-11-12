@@ -29,7 +29,7 @@ export default class extends React.Component{
           endAngle:(value[0] / sum) * 360 * Math.PI / 180
       },{
           startAngle:((value[0] / sum) * 360 * Math.PI / 180),
-          endAngle:(value[1] / sum) * 360 * Math.PI / 180
+          endAngle:(value[1] / sum) * 360 * Math.PI / 180+((value[0] / sum) * 360 * Math.PI / 180)
       }]
     }else{
       arcData = [{
@@ -52,7 +52,10 @@ export default class extends React.Component{
                   return color[i];
                 })
                 .transition()
-                .duration(2000)
+                .delay((d,i)=>{
+                    return i*(arcData.length>1?1000:2000)
+                })
+                .duration(arcData.length>1?1000:2000)
                 .attrTween('d',function(d){
                     let i = d3.interpolate(d.startAngle,d.endAngle)
                     return function(t){
@@ -65,16 +68,51 @@ export default class extends React.Component{
                 .datum(value)
                 .append('span')
                 .attr('class',S.percentage)
-                .text(0)
-                .attr('style','color:'+color)
+                .each(function(d,i){
+                        if(d.length){
+                            d3.select(this)
+                                .selectAll('span')
+                                .data(d)
+                                .enter()
+                                .append('span')
+                                .attr('style',(d,i)=>{
+                                    return `color:${color[i]}`
+                                })
+                                .text(0+'%')
+                        }else{
+                            d3.select(this)
+                                .append('span')
+                                .attr('style',(d,i)=>{
+                                    return `color:${color}`
+                                })
+                                .text(0+'%')
+                        }
+
+
+
+                })
                 .transition()
                 .duration(2000)
                 .tween('text',(d)=>{
-                    return function(t){
-                        d3.select(this)
+                    if(typeof d === 'object'){
+                        return function(t){
+                            d3.select(this)
+                                .selectAll('span')
+                                .text((s,i)=>{
+                                    return (t*s/sum*100).toFixed(2)+'%'
+                                })
+                        }
+                    }else{
+                        return function(t){
+                            d3.select(this)
+                            .select('span')
                             .text((t*d/sum*100).toFixed(2)+'%')
+                        }
                     }
+
                 })
+
+
 
 
   }
@@ -92,7 +130,22 @@ export default class extends React.Component{
     let {name,value,sum,details,hasDeta} = this.props
     let {inMouse} = this.state;
     let active = inMouse?S.active:'';
-
+    let hasStat = null;
+    if(value.length){
+        hasStat = (
+            <div className={S.stat}>
+                <span>偏高人数 <i>{value[0]}</i></span>
+                <span>偏低人数 <i>{value[1]}</i></span>
+            </div>
+        )
+    }else{
+        hasStat = (
+            <div className={S.stat}>
+                <span>异常人数 <i>{value}</i></span>
+                <span>统计人数 <i>{sum}</i></span>
+            </div>
+        )
+    }
     return (
       <div className={`${S.pie} ${active}`}
           onMouseEnter={this.onMouseEnter}
@@ -103,10 +156,9 @@ export default class extends React.Component{
           <span className={S.name}>{name}</span>
 
         </div>
-        <div className={S.stat}>
-            <span>异常人数 <i>{value}</i></span>
-            <span>统计人数 <i>{sum}</i></span>
-        </div>
+
+            {hasStat}
+
         {details && (<Link to={`/details/${name}`} replace={hasDeta} className={S.details}>详情</Link>)}
       </div>
   )
