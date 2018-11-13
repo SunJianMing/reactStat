@@ -12,6 +12,7 @@ export default class extends React.Component{
         sum:elt.sum,
         color:color,
         details:elt.details,
+        secret:elt.secret,
         hasDeta
       }}
       key={i}

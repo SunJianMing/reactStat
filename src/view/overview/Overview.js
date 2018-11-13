@@ -15,62 +15,43 @@ export default class extends React.Component {
         let barData = [
             {
                 name: '影像报告',
-                value: 456456,
-                sum: 8000,
-                url: 'dddddd'
+                value: 5406456
             }, {
-                name: 'HIV病毒感染',
-                value: 456456,
-                sum: 800000,
-                isSecret: true
+                name: '病原报告',
+                value: 456456
             }, {
                 name: '常规体检',
-                value: 906456,
-                sum: 1000000
+                value: 456456,
             }, {
                 name: '免疫组学',
-                value: 906456,
-                sum: 2000000
+                value: 5406456
             }, {
                 name: '无创肠癌筛查',
-                value: 1356456,
-                sum: 8000000
+                value: 456456
             }, {
                 name: '眼底OCT',
-                value: 1806456,
-                sum: 8000000
+                value: 456456
             }, {
                 name: 'HPV分型基因',
-                value: 3156456,
-                sum: 8000000
+                value: 5406456
             }, {
                 name: '肠道微生物',
-                value: 3606456,
-                sum: 8000000
+                value: 456456
             }, {
                 name: '生化报告',
-                value: 4056456,
-                sum: 8000000
+                value: 456456
             }, {
                 name: '睡眠报告',
-                value: 4506456,
-                sum: 8000000
+                value: 5406456
             }, {
-                name: '无创肠癌筛查',
-                value: 1356456,
-                sum: 8000000
+                name: '体测报告',
+                value: 456456
             }, {
-                name: '眼底OCT',
-                value: 1806456,
-                sum: 8000000
+                name: '心理测评',
+                value: 456456
             }, {
-                name: 'HPV分型基因',
-                value: 3156456,
-                sum: 8000000
-            }, {
-                name: '肠道微生物',
-                value: 3606456,
-                sum: 8000000
+                name: '颜质检测',
+                value: 364587
             }]
         this.setState({
             barData

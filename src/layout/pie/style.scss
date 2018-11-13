@@ -42,6 +42,16 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      &.secret{
+
+        div{
+          width: .69rem;
+          height: .69rem;
+          background: url(./img/secret.png) no-repeat;
+          background-size: contain;
+          border-radius: 50%;
+        }
+      }
       svg{
         width: 1rem;
         height: 1rem;
@@ -78,15 +88,61 @@
           font-size: .22rem;
           display: flex;
           justify-content: center;
-          span:nth-child(2){
-              margin-left: .2rem;
+          span{
+            line-height: .19rem;
+            white-space: nowrap;
+            &:nth-child(2){
+              margin-left: .1rem;
+            }
+            &.metabolic{
+              font-size: .18rem;
+              &:after{
+                content: '';
+                display: inline-block;
+                width:.09rem;
+                height: .13rem;
+                margin-left: .05rem;
+              }
+              &:nth-child(1):after{
+                background: url(./img/high.png) no-repeat;
+                background-size: contain;
+              }
+              &:nth-child(2):after{
+                background: url(./img/low.png) no-repeat;
+                background-size: contain;
+              }
+            }
+
+
+
           }
+
+
       }
     }
 
     .stat{
         font-size: .2rem;
-
+        &.stat_icon{
+          span{
+            white-space: nowrap;
+            &:after{
+              width: .09rem;
+              height: .13rem;
+              display: inline-block;
+              content: '';
+              margin-left: .09rem;
+            }
+            &:nth-child(1):after{
+              background: url(./img/high.png) no-repeat;
+              background-size: contain;
+            }
+            &:nth-child(2):after{
+              background: url(./img/low.png) no-repeat;
+              background-size: contain;
+            }
+          }
+        }
         span{
             white-space: nowrap;
             margin-left: -.10rem;

@@ -10,12 +10,21 @@ export default class extends React.Component{
         this.onMouseLeave = this.onMouseLeave.bind(this)
     }
   componentDidMount(){
-    let {name,value,sum,color} = this.props
+    let {name,value,sum,color,secret} = this.props
+
 
     let pieBox = this.refs.svg
     let size = localStorage.getItem('rem')
 
-    let svg = d3.select(pieBox).append('svg')
+    let svg = d3.select(pieBox).classed(S.secret,function(){
+      if(secret){
+        d3.select(this).append('div')
+      }else{
+        d3.select(this).append('svg')
+      }
+      return secret
+    })
+
 
     let arcPath = d3.svg.arc()
                 .innerRadius(0)
@@ -39,7 +48,7 @@ export default class extends React.Component{
     }
 
     // 圆弧
-    let g = svg.selectAll('g.arc')
+    let g = svg.select('svg').selectAll('g.arc')
             .data(arcData)
             .enter()
             .append('g')
@@ -69,31 +78,39 @@ export default class extends React.Component{
                 .append('span')
                 .attr('class',S.percentage)
                 .each(function(d,i){
-                        if(d.length){
-                            d3.select(this)
-                                .selectAll('span')
-                                .data(d)
-                                .enter()
-                                .append('span')
-                                .attr('style',(d,i)=>{
-                                    return `color:${color[i]}`
-                                })
-                                .text(0+'%')
+                        if(secret){
+                          d3.select(this)
+                              .append('span')
+                              .attr('style',(d,i)=>{
+                                  return `color:${color}`
+                              })
+                              .text('保密')
                         }else{
-                            d3.select(this)
-                                .append('span')
-                                .attr('style',(d,i)=>{
-                                    return `color:${color}`
-                                })
-                                .text(0+'%')
+                          if(d.length){
+                              d3.select(this)
+                                  .selectAll('span')
+                                  .data(d)
+                                  .enter()
+                                  .append('span')
+                                  .attr('class',S.metabolic)
+                                  .attr('style',(d,i)=>{
+                                      return `color:${color[i]}`
+                                  })
+                                  .text(0+'%')
+                          }else{
+                              d3.select(this)
+                                  .append('span')
+                                  .attr('style',(d,i)=>{
+                                      return `color:${color}`
+                                  })
+                                  .text(0+'%')
+                          }
                         }
-
-
-
-                })
+                  })
                 .transition()
                 .duration(2000)
                 .tween('text',(d)=>{
+                  if(!secret){
                     if(typeof d === 'object'){
                         return function(t){
                             d3.select(this)
@@ -109,7 +126,7 @@ export default class extends React.Component{
                             .text((t*d/sum*100).toFixed(2)+'%')
                         }
                     }
-
+                  }
                 })
 
 
@@ -127,13 +144,13 @@ export default class extends React.Component{
     })
   }
   render(){
-    let {name,value,sum,details,hasDeta} = this.props
+    let {name,value,sum,details,hasDeta,secret} = this.props
     let {inMouse} = this.state;
     let active = inMouse?S.active:'';
     let hasStat = null;
     if(value.length){
         hasStat = (
-            <div className={S.stat}>
+            <div className={`${S.stat} ${S.stat_icon}`}>
                 <span>偏高人数 <i>{value[0]}</i></span>
                 <span>偏低人数 <i>{value[1]}</i></span>
             </div>
@@ -141,7 +158,7 @@ export default class extends React.Component{
     }else{
         hasStat = (
             <div className={S.stat}>
-                <span>异常人数 <i>{value}</i></span>
+                <span>异常人数 <i>{secret?'保密':value}</i></span>
                 <span>统计人数 <i>{sum}</i></span>
             </div>
         )

@@ -2,6 +2,7 @@ import S from './style.scss'
 import D3 from 'd3'
 export default class extends React.Component {
     componentDidUpdate(){
+      console.log(2);
         let {barData} = this.props
         let bar = this.refs.bar
 
@@ -98,7 +99,7 @@ export default class extends React.Component {
                     })
                     .attr('rx',.05*size)
                     .attr('ry',.05*size)
-                    .attr('width',xScale.rangeBand()-.76*size)
+                    .attr('width',.15*size)
                     .attr('y',(d,i)=>{
                       return svgH -padding.bottom
                     })

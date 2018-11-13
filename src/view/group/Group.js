@@ -45,7 +45,8 @@ export default class extends React.Component {
                 name: 'HIV病毒感染',
                 value: 90,
                 sum: 200,
-                isSecret: true
+                isSecret: true,
+                secret:true
             }, {
                 name: 'EB病毒感染',
                 value: 90,
@@ -214,7 +215,7 @@ export default class extends React.Component {
                       isSecret: true
                   }, {
                       name: '代谢指标',
-                      value: [62,88],
+                      value: [50,30],
                       sum: 200,
                       isSecret: true
                   }
