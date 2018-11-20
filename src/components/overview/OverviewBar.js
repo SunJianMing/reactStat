@@ -1,8 +1,8 @@
 import S from './style.scss'
-import D3 from 'd3'
+
 export default class extends React.Component {
     componentDidUpdate(){
-      console.log(2);
+
         let {barData} = this.props
         let bar = this.refs.bar
 
@@ -16,29 +16,32 @@ export default class extends React.Component {
 
         let padding = {top:0,right:0,bottom:.35*size,left:0}
 
-        let xScale = d3.scale.ordinal()
-                            .domain(d3.range(barData.length))
-                            .rangeRoundBands([0,svgW])
-        let xAxis = d3.svg.axis()
-                    .scale(xScale)
-                    .orient('bottom')
-                    .tickSize(.10*size,0);
+        let xScale = d3.scaleBand()
+                            .domain(barData.map((elt)=>{
+                              return elt.name
+                            }))
+                            .rangeRound([0,svgW])
 
-        let yScale = d3.scale.linear()
+        let xAxis = d3.axisBottom()
+                    .scale(xScale)
+                    .tickPadding(.1*size)
+                    .tickSize(0);
+
+        let yScale = d3.scaleLinear()
                       .domain([0,d3.max(barData.map(elt=>{
                         return elt.value
                       }))])
                       .range([svgH-padding.bottom-.98*size,0])
-        let yAxis = d3.svg.axis()
-                    .scale(yScale)
-                    .orient('left')
+        // let yAxis = d3.axisLeft()
+        //             .scale(yScale)
+
 
 
 
       if(d3.select(bar).select('svg').size()){
         return
       }
-        let svg = d3.select(bar).append('svg')
+        let svg = d3.select(bar).append('svg').attr('viewBox',`0 0 ${12.76*size} ${5.28*size}`)
 
 
         let xg = svg.append('g')
@@ -46,9 +49,7 @@ export default class extends React.Component {
                 .attr('transform','translate('+(0.03*size)+','+(svgH-padding.bottom)+')')
                 .call(xAxis)
                 .selectAll('text')
-                .text((d)=>{
-                    return barData[d].name
-                })
+
 
 
         // let yg = svg.append('g')
@@ -95,7 +96,8 @@ export default class extends React.Component {
                       return colors[i%13]
                     })
                     .attr('x',(d,i)=>{
-                      return padding.left + xScale(i) + (xScale.rangeBand()-0.15*size)/2
+
+                      return padding.left + xScale(d.name) + (xScale.bandwidth()-0.15*size)/2
                     })
                     .attr('rx',.05*size)
                     .attr('ry',.05*size)
@@ -107,7 +109,10 @@ export default class extends React.Component {
                       return  0
                     })
                     .transition()
-                    .duration(2000)
+                    .duration(500)
+                    // .delay((d,i)=>{
+                    //   return i*500
+                    // })
                     .attr('y',(d,i)=>{
                       return svgH - yScale(d.value) - padding.bottom
                     })
@@ -122,7 +127,7 @@ export default class extends React.Component {
                           return colors[i%13]
                         })
                         .attr('x',(d,i)=>{
-                          return padding.left + xScale(i) + (xScale.rangeBand()-0.15*size)/2
+                          return padding.left + xScale(d.name) + (xScale.bandwidth()-0.15*size)/2
                         })
                         .attr('y',(d,i)=>{
                            return svgH  - padding.bottom
@@ -135,14 +140,16 @@ export default class extends React.Component {
                           return 0
                         })
         let initY = text.attr('y')
+        console.log(initY);
         let initText = text.text()
+        console.log(initText);
         let textTran = text.transition()
-                        .duration(2000)
-                        // .attr('y',(d,i)=>{
-                        //    return svgH - yScale(d.value) - padding.bottom
-                        // })
+                        .duration(500)
+                        // .delay((d,i)=>i*500)
                         .tween('text',function(d){
-                            return function(t){
+
+                            return (t)=>{
+
 
                                 d3.select(this)
                                     .attr('y',svgH - padding.bottom - (t*yScale(d.value)))

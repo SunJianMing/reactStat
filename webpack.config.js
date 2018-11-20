@@ -18,7 +18,8 @@ module.exports = {
     'React':'react',
     'ReactDom':'react-dom',
     '$':'axios',
-    'PT':'prop-types'
+    'PT':'prop-types',
+    'd3':'d3'
   })
 ],
   module:{

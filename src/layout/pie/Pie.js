@@ -11,8 +11,6 @@ export default class extends React.Component{
     }
   componentDidMount(){
     let {name,value,sum,color,secret} = this.props
-
-
     let pieBox = this.refs.svg
     let size = localStorage.getItem('rem')
 
@@ -20,13 +18,13 @@ export default class extends React.Component{
       if(secret){
         d3.select(this).append('div')
       }else{
-        d3.select(this).append('svg')
+        d3.select(this).append('svg').attr('viewBox',`0 0 ${size} ${size}`)
       }
       return secret
     })
 
 
-    let arcPath = d3.svg.arc()
+    let arcPath = d3.arc()
                 .innerRadius(0)
                 .outerRadius(size/2)
 
@@ -109,10 +107,10 @@ export default class extends React.Component{
                   })
                 .transition()
                 .duration(2000)
-                .tween('text',(d)=>{
+                .tween('text',function(d){
                   if(!secret){
                     if(typeof d === 'object'){
-                        return function(t){
+                        return (t)=>{
                             d3.select(this)
                                 .selectAll('span')
                                 .text((s,i)=>{
@@ -120,7 +118,7 @@ export default class extends React.Component{
                                 })
                         }
                     }else{
-                        return function(t){
+                        return (t)=>{
                             d3.select(this)
                             .select('span')
                             .text((t*d/sum*100).toFixed(2)+'%')
