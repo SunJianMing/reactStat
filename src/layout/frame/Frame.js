@@ -23,7 +23,7 @@ export default class extends React.Component {
 
   componentDidMount(){
 
-    $.post(`${url}//bhapp/getSystemTime`)
+    $.post(`${url}/bhapp/getSystemTime`)
     .then(({data,result})=>{
       if(result === 200){
         let D = new Date(data)

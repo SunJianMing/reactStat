@@ -1,7 +1,8 @@
 let url = null;
 let href = location.href;
 
-if(/bee-html/ig.test(href)){
+
+if(/bee-html5\//ig.test(href)){
   url = 'https://ihope.genebook.com.cn/bee-svr'
 }else{
   url = 'https://ihope.genebook.com.cn/bee-svr-test'

@@ -1,17 +1,18 @@
 import S from './style.scss'
 
 export default class extends React.Component {
-    componentDidUpdate(){
-
+ 
+    componentDidMount(){
         let {barData} = this.props
         let bar = this.refs.bar
 
         let svgW = bar.offsetWidth;
         let svgH = bar.offsetHeight;
-
+       
+        
         let colors = ['#168BF8','#4651C4','#D65054','#03BE71','#FEDB64','#FE9364','#50D66C','#46BDC4','#506CD6','#165DFD','#D650CE','#50B8D6','#FC7133']
 
-        let rectW = 15
+        
         let size = localStorage.getItem('rem');
 
         let padding = {top:0,right:0,bottom:.35*size,left:0}
@@ -41,7 +42,7 @@ export default class extends React.Component {
       if(d3.select(bar).select('svg').size()){
         return
       }
-        let svg = d3.select(bar).append('svg').attr('viewBox',`0 0 ${12.76*size} ${5.28*size}`)
+        let svg = d3.select(bar).append('svg').attr('viewBox',`0 0 ${svgW} ${svgH}`)
 
 
         let xg = svg.append('g')
@@ -140,9 +141,9 @@ export default class extends React.Component {
                           return 0
                         })
         let initY = text.attr('y')
-        console.log(initY);
+        
         let initText = text.text()
-        console.log(initText);
+        
         let textTran = text.transition()
                         .duration(500)
                         // .delay((d,i)=>i*500)

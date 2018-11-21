@@ -70,3 +70,7 @@ div,span,i,b,table,input,textarea,p,h1,h2,h3,h4,h5,h6,body,s,a{
   stroke-width:1;
 
 }
+
+div,span,i,b,p,li{
+  line-height:1;
+}
