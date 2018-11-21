@@ -1,6 +1,8 @@
 var path = require('path')
 var webpack = require('webpack')
 var htmlWebpackPlugin = require('html-webpack-plugin')
+var copyWebpackPlugin = require('copy-webpack-plugin')
+var writeFileWebpackPlugin = require('write-file-webpack-plugin')
 
 module.exports = {
   entry:'./src/main.js',
@@ -20,7 +22,14 @@ module.exports = {
     '$':'axios',
     'PT':'prop-types',
     'd3':'d3'
-  })
+  }),
+  new copyWebpackPlugin([
+    {
+      from:path.resolve(__dirname,'./assets'),
+      to:'assets'
+  }
+  ]),
+  new writeFileWebpackPlugin()
 ],
   module:{
     rules:[

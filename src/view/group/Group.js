@@ -1,6 +1,9 @@
 import NavTitle from 'layout/topTitle/TopTitle'
 import PieList from 'layout/pie/PieList'
 import S from './style.scss'
+import url from 'common/data/config.js'
+
+
 export default class extends React.Component {
   constructor(props){
     super(props)
@@ -180,47 +183,24 @@ export default class extends React.Component {
               ]
             })
             break;
-            case '/across':
-              this.setState({
-                navData:{
-                  name:'跨组学篇',
-                  english:'Light omics article',
-                  index:'05'
-                },
-                pieData:[
-                  {
-                      name: '免疫超龄',
-                      value: 90,
-                      sum: 200,
-                      url: 'dddddd'
-                  }, {
-                      name: '免疫逆龄',
-                      value: 90,
-                      sum: 200,
-                      isSecret: true
-                  }, {
-                      name: '颜质超龄',
-                      value: 90,
-                      sum: 200,
-                      isSecret: true
-                  }, {
-                      name: '颜质逆龄',
-                      value: 90,
-                      sum: 200,
-                      isSecret: true
-                  }, {
-                      name: '眼底阳性',
-                      value: 90,
-                      sum: 200,
-                      isSecret: true
-                  }, {
-                      name: '代谢指标',
-                      value: [50,30],
-                      sum: 200,
-                      isSecret: true
-                  }
-                ]
-              })
+            case '/Influence':
+            // let pieData = require('./assets/data/influence.json')
+                $.get('./assets/influence.json')
+                .then(({result,data})=>{
+                   
+                   if(result === 200){
+                       this.setState({
+                           pieData:data,
+                           navData:{
+                               name:'影响与基因',
+                               english:'Influence and gene',
+                               index:'04'
+                           }
+                       })
+                   } 
+                    
+                })
+            
               break;
       default:
 

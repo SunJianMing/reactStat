@@ -12,23 +12,27 @@ export default class extends React.Component {
       types:[{
         name:'报告情况总览',
         icon:'overview',
-        url:'/overview'
+       
       },{
         name:'病原传染篇',
         icon:'pathogen',
-        url:'/pathogen'
+       
       },{
-        name:'肿瘤篇',
-        icon:'tumor',
-        url:'/tumor'
+        name:'常规体检',
+        icon:'checkups',
+       
       },{
-        name:'泛血管篇',
-        icon:'blood',
-        url:'/blood'
+        name:'代谢检测',
+        icon:'metabolic',
+       
+      },{
+        name:'影响与基因',
+        icon:'Influence',
+        
       },{
         name:'跨组学篇',
         icon:'across',
-        url:'/across'
+       
       }]
     }
   }

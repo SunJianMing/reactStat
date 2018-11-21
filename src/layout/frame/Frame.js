@@ -47,7 +47,7 @@ export default class extends React.Component {
     let {search} = location
     let hasPrev = search?'':(<Prev/>);
 
-    let group_url = ['/pathogen','/tumor','/blood','/across'];
+    let group_url = ['/pathogen','/checkups','/metabolic','/Influence','/across'];
     let groups = group_url.map((elt,i)=>{
       return (
         <Route path={elt} render={
