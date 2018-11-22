@@ -13,189 +13,115 @@ export default class extends React.Component {
     }
   }
   componentDidMount(){
-    let {location} = this.props
-    let {pathname} = location;
+    let {location:{pathname}} = this.props
+  
     switch (pathname) {
       case '/pathogen':
         this.setState({
-          navData:{
-            name:'病原传感染篇',
-            english:'The pathogens spread the infection',
-            index:'02'
-          },
           pieData:[
             {
-                name: 'HPV阳性',
+                name: '乙肝表面抗原',
                 value: 90,
                 sum: 200,
                 details:true
             }, {
-                name: '幽门螺旋杆菌',
+                name: '丙肝',
                 value: 90,
-                sum: 200,
-                isSecret: true
+                sum: 200
             }, {
-                name: '乙肝病毒感染',
+                name: '人免疫缺陷病毒抗体',
                 value: 90,
-                sum: 200,
-                isSecret: true
+                sum: 200
             }, {
-                name: '丙肝病毒感染',
+                name: '梅毒',
                 value: 90,
-                sum: 200,
-                isSecret: true
-            }, {
-                name: 'HIV病毒感染',
-                value: 90,
-                sum: 200,
-                isSecret: true,
-                secret:true
-            }, {
-                name: 'EB病毒感染',
-                value: 90,
-                sum: 200,
-                isSecret: true
+                sum: 200
             }
           ]
         })
         break;
-        case '/tumor':
+        case '/checkups':
           this.setState({
-            navData:{
-              name:'肿瘤篇',
-              english:'The pathogens spread the infection',
-              index:'03'
-            },
             pieData:[
               {
-                  name: '遗传性肿瘤高风险',
+                  name: '空腹血糖',
                   value: 90,
                   sum: 200,
-                  url: 'dddddd'
+                  details:true
               }, {
-                  name: '肠癌早晒阳性',
+                  name: 'BMI',
                   value: 90,
-                  sum: 200,
-                  isSecret: true
+                  sum: 200
               }, {
-                  name: '乳腺癌患者',
+                  name: '血压',
                   value: 90,
-                  sum: 200,
-                  isSecret: true
+                  sum: 200
               }, {
-                  name: '肿瘤患者',
+                  name: '血尿酸',
                   value: 90,
-                  sum: 200,
-                  isSecret: true
+                  sum: 200
               }, {
-                  name: '肺癌患者',
+                  name: '甘油三酯',
                   value: 90,
-                  sum: 200,
-                  isSecret: true
+                  sum: 200
               }, {
-                  name: '结直肠癌患者',
-                  value: 90,
-                  sum: 200,
-                  isSecret: true
-              }
+                name: '低密度胆固醇',
+                value: 90,
+                sum: 200
+            }, {
+                name: '总胆固醇',
+                value: 90,
+                sum: 200
+            }, {
+                name: '体脂肪率',
+                value: 90,
+                sum: 200
+            }, {
+                name: 'C13呼气试验',
+                value: 90,
+                sum: 200
+            }
             ]
           })
           break;
-          case '/blood':
+          case '/across':
             this.setState({
-              navData:{
-                name:'泛血管篇',
-                english:'Vitamin testingticle',
-                index:'04'
-              },
               pieData:[
                 {
-                    name: '劲动脉斑块',
+                    name: '免疫超龄',
                     value: 90,
-                    sum: 200,
-                    url: 'dddddd'
+                    sum: 200
                 }, {
-                    name: '遗VB1险',
+                    name: '免疫逆龄',
                     value: 90,
                     sum: 200,
-                    isSecret: true
                 }, {
-                    name: '遗传性高血压高风险',
+                    name: 'HPV基因检测指标阳性',
                     value: 90,
                     sum: 200,
-                    isSecret: true
                 }, {
-                    name: '遗传性高血糖高风险',
+                    name: '眼底阳性',
                     value: 90,
                     sum: 200,
-                    isSecret: true
                 }, {
-                    name: '遗传性高血脂高风险',
+                    name: '颜质逆龄',
                     value: 90,
                     sum: 200,
-                    isSecret: true
                 }, {
-                    name: '高血压',
+                    name: '颜质超龄',
                     value: 90,
                     sum: 200,
-                    isSecret: true
-                }, {
-                    name: '高血糖',
-                    value: 90,
-                    sum: 200,
-                    isSecret: true
-                }, {
-                    name: '高尿酸',
-                    value: 90,
-                    sum: 200,
-                    isSecret: true
-                }, {
-                    name: '高血脂',
-                    value: 90,
-                    sum: 200,
-                    isSecret: true
-                }, {
-                    name: '肥胖',
-                    value: 90,
-                    sum: 200,
-                    isSecret: true
-                }, {
-                    name: '过重',
-                    value: 90,
-                    sum: 200,
-                    isSecret: true
-                }, {
-                    name: '过轻',
-                    value: 90,
-                    sum: 200,
-                    isSecret: true
-                }, {
-                    name: '非常肥胖',
-                    value: 90,
-                    sum: 200,
-                    isSecret: true
-                }, {
-                    name: '体脂率超标',
-                    value: 90,
-                    sum: 200,
-                    isSecret: true
                 }
               ]
             })
             break;
             case '/Influence':
-            // let pieData = require('./assets/data/influence.json')
                 $.get('./assets/influence.json')
                 .then(({result,data})=>{
                    
                    if(result === 200){
                        this.setState({
-                           pieData:data,
-                           navData:{
-                               name:'影响与基因',
-                               english:'Influence and gene',
-                               index:'04'
-                           }
+                           pieData:data
                        })
                    } 
                     
@@ -207,14 +133,14 @@ export default class extends React.Component {
     }
   }
   render(){
-    let {navData,pieData} = this.state
+    let {pieData} = this.state
     return (
-      <div className='clearfix watermark'>
-        <NavTitle {...navData}/>
+     
+        
         <PieList {...{
           pieData
         }}/>
-      </div>
+     
     )
   }
 }

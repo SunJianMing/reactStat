@@ -10,6 +10,7 @@ export default class extends React.Component {
     }
   }
   componentDidMount(){
+   
     let {match:{params:{name}}} = this.props
     let english;
     if(name === 'HPV阳性'){

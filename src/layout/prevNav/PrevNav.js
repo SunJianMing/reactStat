@@ -2,16 +2,9 @@ import S from './style.scss'
 import {withRouter} from 'react-router-dom'
 
  class PrevPage extends React.Component {
-    constructor(props){
-        super(props)
-
-    }
-
-
+    
     render(){
-
         let {history} = this.props
-
         return (
             <div
              className={`${S.prev}`}
