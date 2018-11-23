@@ -23,7 +23,7 @@ export default class extends React.Component{
       return secret
     })
 
-
+    
     let arcPath = d3.arc()
                 .innerRadius(0)
                 .outerRadius(size/2)
@@ -48,13 +48,14 @@ export default class extends React.Component{
     // 圆弧
     let g = svg.select('svg').selectAll('g.arc')
             .data(arcData)
-            .enter()
+    
+    let enters = g.enter()
             .append('g')
             .attr('transform','translate('+size/2+','+size/2+')')
 
 
 
-    let arcTran = g.append('path')
+    let arcTran = enters.append('path')
                 .attr('fill',(d,i)=>{
                   return color[i];
                 })
@@ -64,6 +65,8 @@ export default class extends React.Component{
                 })
                 .duration(arcData.length>1?1000:2000)
                 .attrTween('d',function(d){
+                    console.log(d);
+                    
                     let i = d3.interpolate(d.startAngle,d.endAngle)
                     return function(t){
                         d.endAngle = i(t)

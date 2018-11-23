@@ -21,12 +21,14 @@ import {Link,withRouter} from 'react-router-dom'
       })
   }
   render(){
-    let {name,icon,history} = this.props
-
+   
+    let {name,icon,path,history} = this.props
+    
+    
     let {active} = this.state
     return (
       <Link to={{
-        pathname:'/'+icon,
+        pathname:path,
       }}
       >
         <div className={`${S.item} ${active?S.active:''}`} onMouseEnter={this.mouseEnter} onMouseLeave={this.mouseLeave}>

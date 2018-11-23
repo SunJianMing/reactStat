@@ -82,13 +82,12 @@
         }
       }
       .percentage{
-          height: .19rem;
-          line-height: 19px;
+          
           font-size: .22rem;
           display: flex;
           justify-content: center;
           span{
-            line-height: .19rem;
+            
             white-space: nowrap;
             &:nth-child(2){
               margin-left: .1rem;
@@ -125,6 +124,7 @@
         &.stat_icon{
           span{
             white-space: nowrap;
+           
             &:after{
               width: .09rem;
               height: .13rem;
@@ -144,6 +144,7 @@
         }
         span{
             white-space: nowrap;
+            margin-bottom: .07rem;
             margin-left: -.10rem;
             color:rgba(255,255,255,0.5);
             i{

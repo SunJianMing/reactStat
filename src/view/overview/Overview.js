@@ -37,7 +37,7 @@ export default class extends React.Component {
           }}/>
           {barData.length ? (<Bar {...{
               barData
-          }}/>):(<div className={S.loading}>图表正在生产中</div>)}
+          }}/>):(<div className={S.loading}>图表正在生产中...</div>)}
           
       </div>
     )

@@ -19,8 +19,7 @@ export default class extends React.Component {
 
     }
     componentDidMount() {
-        $
-            .post(`${url}/bhapp/getSystemTime`)
+        $.post(`${url}/bhapp/getSystemTime`)
             .then(({data, result}) => {
                 if (result === 200) {
                     let D = new Date(data)
@@ -59,45 +58,53 @@ export default class extends React.Component {
                 index: '06'
             },
             {
-              path:'/elements',
               name:'微量元素与重金属',
-              english:'Trace elements and heavy metals'
+              english:'Trace elements and heavy metals',
+              path:'/microelement',
+              isYear:true
             },
             {
-              path:'/vitamin',
               name:'维生素检测',
-              english:'Vitamin testing'
+              english:'Vitamin testing',
+              path:'/vitamin',
+              isYear:true
             },
             {
-              path:'/amino',
               name:'氨基酸检测',
-              english:'Amino acid detection'
+              english:'Amino acid detection',
+              path:'/amino',
+              isYear:true
             },
             {
-              path:'/hormone',
               name:'荷尔蒙激素',
-              english:'hormone'
+              english:'hormone',
+              path:'/hormone',
+              isYear:true
             },
             {
-              path:'/homocysteine',
               name:'同型半胱氨酸',
-              english:'homocysteine'
+              english:'homocysteine',
+              path:'/thcy',
+              isYear:true
             },
             {
-              path:'/melatonin',
               name:'褪黑素',
-              english:'melatonin'
+              english:'melatonin',
+              path:'/melatonin',
+              isYear:true 
             }
         ]
         navTitle = navTitle.map((elt, i) => {
-            let {name, english, index, path} = elt;
+            let {name, english, index, path,isYear} = elt;
+            
+            
             return (
                 <Route
                     path={path}
                     exact
                     render={props => (
                     <Page {...props} {...{nowDate,navData:{ name,english,index}}}>
-                        <Group {...props}/>
+                        <Group {...props} {...{isYear}}/>
                     </Page>
                 )}
                     key={i}/>
@@ -132,7 +139,7 @@ export default class extends React.Component {
                     <Page
                         {...{ nowDate,navData:{ name:'代谢检测', english:'Metabolic testing', index:'04' } }}
                         {...props}>
-                        <Types {...props}/>
+                        <Types {...props} />
                     </Page>
                 )}/>
                 {/* 三级分类 */}

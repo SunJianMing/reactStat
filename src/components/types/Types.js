@@ -3,11 +3,11 @@ import S from './style.scss'
 export default function({types}){
   let item = types.map((elt,i)=>{
 
-      let {name,icon,url} = elt;
+      let {name,icon,path} = elt;
       return (<Item {...{
         name,
         icon,
-        url
+        path
       }}
       key={i}
     />)

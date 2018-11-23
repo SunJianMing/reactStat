@@ -6,6 +6,7 @@ export default class extends React.Component {
         this.state = {
             types: []
         }
+       
     }
     componentDidMount() {
         let {location: {
@@ -17,22 +18,28 @@ export default class extends React.Component {
                 types = [
                     {
                         name: '报告情况总览',
-                        icon: 'overview'
+                        icon: 'overview',
+                        path:'/overview'
                     }, {
                         name: '病原传染篇',
-                        icon: 'pathogen'
+                        icon: 'pathogen',
+                        path: '/pathogen'
                     }, {
                         name: '常规体检',
-                        icon: 'checkups'
+                        icon: 'checkups',
+                        path: '/checkups'
                     }, {
                         name: '代谢检测',
-                        icon: 'metabolic'
+                        icon: 'metabolic',
+                        path: '/metabolic'
                     }, {
                         name: '影响与基因',
-                        icon: 'Influence'
+                        icon: 'Influence',
+                        path: '/Influence'
                     }, {
                         name: '跨组学篇',
-                        icon: 'across'
+                        icon: 'across',
+                        path: '/across'
                     }
                 ]
                 break;
@@ -40,42 +47,46 @@ export default class extends React.Component {
                 types = [
                     {
                         name: '微量元素与重金属',
-                        icon: 'elements',
-                        english: 'Trace elements and heavy metals'
+                        icon: 'microelement',
+                        path:'/microelement',
+                       
                     }, {
                         name: '维生素检测',
                         icon: 'vitamin',
-                        english: 'Vitamin testing'
+                        path:'/vitamin'
 
                     }, {
                         name: '氨基酸检测',
                         icon: 'amino',
-                        english: 'Amino acid detection'
+                        path:'/amino'
+                       
                     }, {
                         name: '荷尔蒙激素',
                         icon: 'hormone',
-                        english: 'hormone'
+                        path:'/hormone'
+                       
 
                     }, {
                         name: '同型半胱氨酸',
                         icon: 'homocysteine',
-                        engLish: 'homocysteine'
+                        path:'/thcy'
 
                     }, {
                         name: '褪黑素',
                         icon: 'melatonin',
-                        english: 'melatonin'
+                        path:'/melatonin'  
                     }
                 ]
                 break;
         }
-
-        this.setState({
-          types
-        })
+        
+        
+        this.setState({types})
     }
     render() {
         let {types} = this.state;
-        return (<Types {...{types}}/>)
+      
+        
+        return (<Types {...{types}} />)
     }
 }

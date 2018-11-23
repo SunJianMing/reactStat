@@ -3,35 +3,35 @@
     "message":"请求成功",
     "data":[{
         "name":"心律失常高风险",
-        "value":90,
-        "sum":200
+        "unusual":90,
+        "value":200
     },{
         "name":"高血压高风险",
-        "value":90,
-        "sum":200
+        "unusual":90,
+        "value":200
     },{
         "name":"血脂异常高风险",
-        "value":90,
-        "sum":200
+        "unusual":90,
+        "value":200
     },{
         "name":"糖尿病高风险",
-        "value":90,
-        "sum":200
+        "unusual":90,
+        "value":200
     },{
         "name":"劲动脉斑块",
-        "value":90,
-        "sum":200
+        "unusual":90,
+        "value":200
     },{
         "name":"肺癌患者",
-        "value":90,
-        "sum":200
+        "unusual":90,
+        "value":200
     },{
         "name":"肿瘤患者",
-        "value":90,
-        "sum":200
+        "unusual":90,
+        "value":200
     },{
         "name":"乳腺癌患者",
-        "value":90,
-        "sum":200
+        "unusual":90,
+        "value":200
     }]
 }
