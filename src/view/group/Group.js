@@ -14,15 +14,19 @@ export default class extends React.Component {
             yearData: [
                 '2017', '2018'
             ],
-            selectYear: '2018'
+            selectYear: ''
         }
         this.getMetabolicData = this.getMetabolicData.bind(this)
         this.changeYear = this.changeYear.bind(this)
     }
-    getMetabolicData(year) {
+    getMetabolicData(yearVal) {
+        let {selectYear} = this.state;
+        
+        
+        if(yearVal === selectYear) return;
         this.setState({pieData: []})
         let {name} = this.state
-        $.get(`http://172.16.167.85:60000/bee-svr-test/reportoverview/getMetabolicList?businessType=${name}&year=${year}`)
+        $.get(`http://172.16.167.85:60000/bee-svr-test/reportoverview/getMetabolicList?businessType=${name}&year=${yearVal}`)
             .then(({result, data}) => {
                 if (result === 200) {
                     this.setState({pieData: data})
@@ -44,9 +48,11 @@ export default class extends React.Component {
 
         this.setState({name: name},()=>{
             let {isYear} = this.props;
-            let {selectYear} = this.state
             if(isYear){
-                this.getMetabolicData(selectYear)
+                this.getMetabolicData('2018')
+                this.setState({
+                    selectYear:'2018'
+                })
             }
         })
 

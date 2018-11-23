@@ -65,7 +65,7 @@ export default class extends React.Component{
                 })
                 .duration(arcData.length>1?1000:2000)
                 .attrTween('d',function(d){
-                    console.log(d);
+                   
                     
                     let i = d3.interpolate(d.startAngle,d.endAngle)
                     return function(t){
