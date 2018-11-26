@@ -25,8 +25,12 @@
         transform: scale(1);
         opacity: 1;
       }
+      
       .content{
         font-size: .24rem;
+        &.tooMenu span{
+          font-size: .24rem;
+        }
         bottom:2.08rem;
         .overview{
           width:.6rem;
@@ -84,6 +88,49 @@
           background: url(./img/acrossActive.png) no-repeat;
           background-size: contain;
         }
+        // 二级分类图标
+      .microelement{
+        width: .62rem;
+        height: .52rem;
+        margin-bottom: .42rem;
+        background:url(./img/metabolic/microelementActive.png) no-repeat;
+        background-size: contain;
+      }
+      .vitamin{
+        width: .6rem;
+        height: .71rem;
+        margin-bottom: .34rem;
+        background: url(./img/metabolic/vitaminActive.png) no-repeat;
+        background-size: contain;
+      }
+      .amino{
+        width: .62rem;
+        height: .62rem;
+        margin-bottom: .37rem;
+        background: url(./img/metabolic/aminoActive.png) no-repeat;
+        background-size: contain;
+      }
+      .hormone{
+        width: .62rem;
+        height: .62rem;
+        margin-bottom: .37rem;
+        background: url(./img/metabolic/hormoneActive.png) no-repeat;
+        background-size: contain;
+      }
+      .thcy{
+        width: .63rem;
+        height: .63rem;
+        margin-bottom: .37rem;
+        background: url(./img/metabolic/thcyActive.png) no-repeat;
+        background-size: contain;
+      }
+      .melatonin{
+        width: .61rem;
+        height: .62rem;
+        margin-bottom: .37rem;
+        background: url(./img/metabolic/melatoninActive.png) no-repeat;
+        background-size: contain;
+      }
       }
     }
     //正常时的样式
@@ -99,6 +146,9 @@
       align-items: center;
       flex-direction: column;
       transition: all .3s;
+      &.tooMenu span{
+        font-size: .18rem;
+      }
       i{
         transition: all .3s;
 
@@ -160,6 +210,50 @@
         background: url(./img/across.png) no-repeat;
         background-size: contain;
         margin-bottom: .17rem;
+      }
+
+      // 二级分类图标
+      .microelement{
+        width: .48rem;
+        height: .4rem;
+        margin-bottom: .22rem;
+        background:url(./img/metabolic/microelement.png) no-repeat;
+        background-size: contain;
+      }
+      .vitamin{
+        width: .48rem;
+        height: .58rem;
+        margin-bottom: .16rem;
+        background: url(./img/metabolic/vitamin.png) no-repeat;
+        background-size: contain;
+      }
+      .amino{
+        width: .48rem;
+        height: .48rem;
+        margin-bottom: .18rem;
+        background: url(./img/metabolic/amino.png) no-repeat;
+        background-size: contain;
+      }
+      .hormone{
+        width: .48rem;
+        height: .48rem;
+        margin-bottom: .18rem;
+        background: url(./img/metabolic/hormone.png) no-repeat;
+        background-size: contain;
+      }
+      .thcy{
+        width: .51rem;
+        height: .51rem;
+        margin-bottom: .17rem;
+        background: url(./img/metabolic/thcy.png) no-repeat;
+        background-size: contain;
+      }
+      .melatonin{
+        width: .48rem;
+        height: .48rem;
+        margin-bottom: .18rem;
+        background: url(./img/metabolic/melatonin.png) no-repeat;
+        background-size: contain;
       }
     }
   }

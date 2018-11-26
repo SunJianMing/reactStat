@@ -49,32 +49,38 @@ export default class extends React.Component {
                         name: '微量元素与重金属',
                         icon: 'microelement',
                         path:'/microelement',
+                        isMenu:true
                        
                     }, {
                         name: '维生素检测',
                         icon: 'vitamin',
-                        path:'/vitamin'
+                        path:'/vitamin',
+                        isMenu:true
 
                     }, {
                         name: '氨基酸检测',
                         icon: 'amino',
-                        path:'/amino'
+                        path:'/amino',
+                        isMenu:true
                        
                     }, {
                         name: '荷尔蒙激素',
                         icon: 'hormone',
-                        path:'/hormone'
+                        path:'/hormone',
+                        isMenu:true
                        
 
                     }, {
                         name: '同型半胱氨酸',
-                        icon: 'homocysteine',
-                        path:'/thcy'
+                        icon: 'thcy',
+                        path:'/thcy',
+                        isMenu:true
 
                     }, {
                         name: '褪黑素',
                         icon: 'melatonin',
-                        path:'/melatonin'  
+                        path:'/melatonin',
+                        isMenu:true 
                     }
                 ]
                 break;
@@ -85,8 +91,6 @@ export default class extends React.Component {
     }
     render() {
         let {types} = this.state;
-      
-        
         return (<Types {...{types}} />)
     }
 }

@@ -7,6 +7,7 @@ export default class extends React.Component {
             open:false
         }
         this.changeOpen = this.changeOpen.bind(this)
+        this.closeOpen = this.closeOpen.bind(this)
     }
     changeOpen(){
         let {open} = this.state;
@@ -14,15 +15,26 @@ export default class extends React.Component {
             open:!open
         })
     }
+    closeOpen(){
+        this.setState({
+            open:false
+        })
+    }
+    componentDidMount(){
+        document.addEventListener('click',this.closeOpen)
+    }
+    componentWillUnmount(){
+        document.removeEventListener('click',this.closeOpen)
+    }
     render(){
         let {data,checked,changeYear} = this.props;
         let {open} = this.state;
         return (
             <div className={`${S.layout} ${open?S.active:''}`} onClick={
                 (ev)=>{
-                    ev.stopPropagation()
-                    ev.preventDefault()
+                    ev.nativeEvent.stopImmediatePropagation()
                     this.changeOpen()
+                   
                 }
             }>
                 <span className={S.value}>{checked}年</span>
@@ -31,6 +43,9 @@ export default class extends React.Component {
                         return (
                             <li key={i} onClick={
                                 ev=>{
+                                    console.log(333);
+                                    
+                                    ev.stopPropagation()
                                     changeYear(elt)
                                 }
                             }>{elt}年</li>
