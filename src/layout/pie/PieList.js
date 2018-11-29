@@ -15,9 +15,9 @@ export default class extends React.Component{
     let {pieData,details,hasDeta} = this.props;
     let {colors} = this.state;
     let pies = pieData.map((elt,i)=>{
-     
-      let color = (typeof elt.value  === 'object')?['#396FA6','#50B8D6']:[colors[i%13]]
-      return <Pie {...{
+      
+      let color = elt && (typeof elt.value  === 'object')?['#396FA6','#50B8D6']:[colors[i%13]]
+      return (elt && <Pie {...{
         name:elt.name,
         value:elt.unusual,
         sum:elt.value,
@@ -27,7 +27,7 @@ export default class extends React.Component{
         hasDeta
       }}
       key={i}
-    />
+    />)
     })
     let mt = pieData.length>7?S.mt:''
     return (

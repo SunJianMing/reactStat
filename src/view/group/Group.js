@@ -2,6 +2,7 @@ import PieList from 'layout/pie/PieList'
 import S from './style.scss'
 import url from 'common/data/config.js'
 
+
 import Year from 'components/year/Year'
 
 export default class extends React.Component {
@@ -20,13 +21,19 @@ export default class extends React.Component {
         this.changeYear = this.changeYear.bind(this)
     }
     getMetabolicData(yearVal) {
-        let {selectYear} = this.state;
-        
-        
+        let {selectYear,name} = this.state;
+          
         if(yearVal === selectYear) return;
         this.setState({pieData: []})
-        let {name} = this.state
-        $.get(`http://172.16.167.85:60000/bee-svr-test/reportoverview/getMetabolicList?businessType=${name}&year=${yearVal}`)
+        let pathurl = '';
+
+        if(name === 'across'){
+            pathurl = `${url}/reportoverview/getCrossGroup?year=${yearVal}`
+        }else{
+            pathurl = `${url}/reportoverview/getMetabolicList?businessType=${name}&year=${yearVal}`
+        }
+
+        $.get(pathurl)
             .then(({result, data}) => {
                 if (result === 200) {
                     this.setState({pieData: data})
@@ -59,27 +66,17 @@ export default class extends React.Component {
         
         switch (pathname) {
             case '/pathogen':
-                this.setState({
-                    pieData: [
-                        {
-                            name: '乙肝表面抗原',
-                            unusual: 90,
-                            value: 200,
-                            details: true
-                        }, {
-                            name: '丙肝',
-                            unusual: 90,
-                            value: 200
-                        }, {
-                            name: '人免疫缺陷病毒抗体',
-                            unusual: 90,
-                            value: 200
-                        }, {
-                            name: '梅毒',
-                            unusual: 90,
-                            value: 200
-                        }
-                    ]
+            //病原
+           
+            
+                $.get(`${url}/reportoverview/getpathogenyView`)
+                .then(({result,data})=>{
+                   if(result === 200){
+                       this.setState({
+                           pieData:data
+                       })
+                   }
+                    
                 })
                 break;
             case '/checkups':
@@ -127,35 +124,7 @@ export default class extends React.Component {
                 })
                 break;
             case '/across':
-                this.setState({
-                    pieData: [
-                        {
-                            name: '免疫超龄',
-                            unusual: 90,
-                            value: 200
-                        }, {
-                            name: '免疫逆龄',
-                            unusual: 90,
-                            value: 200
-                        }, {
-                            name: 'HPV基因检测指标阳性',
-                            unusual: 90,
-                            value: 200
-                        }, {
-                            name: '眼底阳性',
-                            unusual: 90,
-                            value: 200
-                        }, {
-                            name: '颜质逆龄',
-                            unusual: 90,
-                            value: 200
-                        }, {
-                            name: '颜质超龄',
-                            unusual: 90,
-                            value: 200
-                        }
-                    ]
-                })
+                
                 break;
             case '/Influence':
                 $.get('./assets/influence.json')

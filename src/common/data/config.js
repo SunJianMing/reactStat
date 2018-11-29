@@ -3,9 +3,9 @@ let href = location.href;
 
 
 if(/bee-html5\//ig.test(href)){
-  url = 'https://ihope.genebook.com.cn/bee-svr'
+  url = 'http://172.16.167.85:60000/bee-svr'
 }else{
-  url = 'https://ihope.genebook.com.cn/bee-svr-test'
+  url = 'http://172.16.167.85:60000/bee-svr-test'
 }
 
 

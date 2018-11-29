@@ -55,7 +55,8 @@ export default class extends React.Component {
                 path: '/across',
                 name: '跨组学篇',
                 english: 'Light omics article',
-                index: '06'
+                index: '06',
+                isYear:true
             },
             {
               name:'微量元素与重金属',
